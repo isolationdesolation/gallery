@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import Header from './components/Header/Header'
+import './App.scss';
 
 function ButtonDownload() {
   return (
@@ -16,11 +17,7 @@ function ButtonDownload() {
 function App() {
   return (
     <div className="App">
-      <header
-        className="App-header"
-        >
-          Моя галерея
-      </header>
+      <Header />
       <ButtonDownload />
     </div>
 

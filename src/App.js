@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+
+function ButtonDownload() {
+  return (
+    <button
+    type="button"
+    className="ButtonDownload"
+    onClick={() => alert("Здесь будет загрузка изображения...")}
+  >
+    Загрузить изображения
+  </button>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <header
+        className="App-header"
         >
-          Learn React
-        </a>
+          Моя галерея
       </header>
+      <ButtonDownload />
     </div>
+
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import UrlForm from '../components/Download/UrlForm';
+import DownloadForm from '../components/Download/DownloadForm';
 
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
         width: 300, 
         height: 200,  
         paddingTop: 100  }}>
-      <UrlForm />
+      <DownloadForm />
     </div>
   );
 }

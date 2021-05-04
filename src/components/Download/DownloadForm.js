@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import './UrlForm.scss';
+import './DownloadForm.scss';
 
 
-class UrlForm extends React.Component {
+class DownloadForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {value: ''};
@@ -26,8 +26,9 @@ class UrlForm extends React.Component {
       return (
         <form onSubmit={this.handleSubmit}>
           <label className="label" >
-            URL фотографии:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <div className="container">URL фотографии или json: </div>
+          <input className="input" type="text" value={this.state.value} onChange={this.handleChange} />
+
           </label>
           <input className="submit" type="submit" value="Загрузить изображение" />
         </form>
@@ -36,8 +37,8 @@ class UrlForm extends React.Component {
   }
   
   ReactDOM.render(
-    <UrlForm />,
+    <DownloadForm />,
     document.getElementById('root')
   );
 
-  export default UrlForm;
+  export default DownloadForm;

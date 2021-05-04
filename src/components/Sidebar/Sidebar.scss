@@ -33,6 +33,7 @@
 .side-menu.active {
   left: 0;
   transition: 350ms;
+  z-index: 2
 }
 
 .side-text {

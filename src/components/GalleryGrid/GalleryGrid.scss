@@ -1,0 +1,10 @@
+@import "../shared/globals";
+@import '../shared/material-colors.scss';
+
+.gallery {
+    font-family: 'Montserrat', sans-serif;
+    color: $color-teal-900;
+    padding: 15px;
+    font-size: 20px;
+    align-items: center;
+  }

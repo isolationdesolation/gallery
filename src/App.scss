@@ -1,20 +1,6 @@
-@import 'components/shared/material-colors.scss';
 
-.App {
+.h1 {
   text-align: center;
-  background-color: $color-teal-300;
-  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
-
-
-.ButtonDownload {
-  background-color: $color-teal-900;
-  cursor: pointer;
-  color: $color-white;
-  padding: 15px;
-  font-size: 20px;
-  margin: 4px 2px;
-  border-radius: 15px;
-}
- 

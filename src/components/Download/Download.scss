@@ -1,0 +1,11 @@
+@import '../shared/material-colors.scss';
+
+.ButtonDownload {
+    background-color: $color-teal-900;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 20px;
+    align-items: center;
+  }

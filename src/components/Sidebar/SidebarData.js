@@ -1,18 +1,18 @@
 import React from 'react';
-import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
 import * as IoIcons from 'react-icons/io';
 
 export const SidebarData = [
   {
-    title: 'Home',
+    title: 'Загрузить',
     path: '/',
-    icon: <AiIcons.AiFillHome />,
+    icon: <FaIcons.FaRegFolder />,
     cName: 'side-text'
   },
   {
-    title: 'Gallery',
+    title: 'Галерея',
     path: '/gallery',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaRegEye />,
     cName: 'side-text'
   }
 ];

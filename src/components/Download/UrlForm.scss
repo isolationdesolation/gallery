@@ -1,6 +1,6 @@
 @import '../shared/material-colors.scss';
 
-.ButtonDownload {
+.submit {
     background-color: $color-teal-900;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
@@ -16,3 +16,15 @@
     transform: translate(-50%,-50%);
     z-index: 1
   }
+
+.label {
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 1
+}

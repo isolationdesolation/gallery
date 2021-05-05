@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 
 import './DownloadForm.scss';
 
@@ -7,29 +7,56 @@ import './DownloadForm.scss';
 class DownloadForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {text: '', file: ''};
   
-      this.handleChange = this.handleChange.bind(this);
+      this.handleFileInput = this.handleFileInput.bind(this);
+      this.handleTextInput = this.handleTextInput.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-  
-    handleChange(event) {
+
+
+    handleTextInput(event) {
       this.setState({value: event.target.value});
     }
-  
+
+    handleFileInput (event) {
+      console.log(event.target.files[0]);
+      this.setState({ file: event.target.files[0] });
+    };
+
     handleSubmit(event) {
-    alert('Photo was downloaded: ' + this.state.value);
-      event.preventDefault();
-    }
+      ;
+      if (this.state.value) {
+        localStorage.setItem('url', this.state.value);
+        alert('Download is started for image' + this.state.value)
+      };
+      if (this.state.file) {
+        localStorage.setItem('file', this.state.file);
+        alert('Json processing' + this.state.file)
+      };
+        event.preventDefault();
+      }
   
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
-          <label className="label" >
-            <div className="container">URL фотографии или json: </div>
-          <input className="input" type="text" value={this.state.value} onChange={this.handleChange} />
-
-          </label>
+           <div>
+            <input
+              className="input"
+              type="text"
+              value={this.state.value}
+              onChange={this.handleTextInput}
+            />
+          </div>
+          <div>
+            <div>
+              <input
+                type="file"
+                name="file"
+                onChange={this.handleFileInput}
+              />
+            </div>              
+            </div>
           <input className="submit" type="submit" value="Загрузить изображение" />
         </form>
       );

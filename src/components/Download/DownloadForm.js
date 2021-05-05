@@ -31,7 +31,7 @@ class DownloadForm extends React.Component {
         alert('Download is started for image' + this.state.value)
       };
       if (this.state.file) {
-        localStorage.setItem('file', this.state.file);
+        localStorage.setItem('file', JSON.stringify(this.state.file));
         alert('Json processing' + this.state.file)
       };
         event.preventDefault();

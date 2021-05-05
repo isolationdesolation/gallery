@@ -12,3 +12,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  .container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  ul {
+    flex-grow: 1;
+    overflow-y: auto;
+  }

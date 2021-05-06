@@ -23,7 +23,7 @@ class DownloadForm extends React.Component {
 
     handleFileInput (event) {
       console.log(event.target.files[0]);
-      this.setState({ file: event.target.files[0] });
+      this.setState({ fileDownloaded: event.target.files, });
     };
 
     handleSubmit(event) {
@@ -32,8 +32,10 @@ class DownloadForm extends React.Component {
         data.append('file', JSON.stringify({'url': this.state.value, 'width': '', 'height': ''}));
         axios.post("http://localhost:8000/upload", data);
       };
-      if (this.state.file) {
-        data.append('file', this.state.file);
+      if (this.state.fileDownloaded) {
+        for(var numberOfFiles = 0; numberOfFiles < this.state.fileDownloaded.length; numberOfFiles++) {
+          data.append('file', this.state.fileDownloaded[numberOfFiles])
+      }
         axios.post("http://localhost:8000/upload", data)
       };
       
@@ -56,6 +58,7 @@ class DownloadForm extends React.Component {
               <input
                 type="file"
                 name="file"
+                multiple
                 onChange={this.handleFileInput}
               />
             </div>              

@@ -3,37 +3,38 @@
 .submit {
     background-color: $color-teal-900;
     font-family: 'Montserrat', sans-serif;
+    border-radius: 25px;
     cursor: pointer;
     color: #ffffff;
     padding: 15px;
     font-size: 20px;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    z-index: 1
+    border: 0;
   }
 
-.label {
-    font-family: 'Montserrat', sans-serif;
-    align-items: center;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    z-index: 1
+ul {
+    list-style:none;
 }
 
-.input {
+li {
+  padding: 10px;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
     font-family: 'Montserrat', sans-serif;
 }
 
 .container {
-  text-align: center;
-  height: max-content;
+        position: absolute; 
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
 }

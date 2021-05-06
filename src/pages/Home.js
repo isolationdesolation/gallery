@@ -5,11 +5,14 @@ import DownloadForm from '../components/Download/DownloadForm';
 function Home() {
   return (
     <div className='container' style={{
-        width: 300, 
-        height: 200,  
-        paddingTop: 100  }}>
-      <DownloadForm />
-    </div>
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '200px',
+      position: 'relative'
+}}>
+  <DownloadForm />
+    </div >
   );
 }
 

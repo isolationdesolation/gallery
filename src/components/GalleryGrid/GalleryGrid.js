@@ -1,31 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom'
+import React, { Fragment, useState, useEffect } from 'react';
+import Loader from '../Loader/Loader';
+import GalleryData from '../GalleryData/GalleryData';
 import './GalleryGrid.scss';
-import data from "../../images-local.json";
 
-class GalleryGrid extends React.Component {
+function GalleryGrid() {
+  const GalleryLoading = Loader(GalleryData);
+  const [appState, setAppState] = useState({
+    loading: false,
+    images: null,
+  });
 
-    gallery = () => {
-        return (
-          <div className="container" >
-              <ul>
-            {data.galleryImages.map(address => <li><img src={address.url}></img></li>)}
-            </ul>
-          </div>
-        )
-      }
-    render() { 
-      return(
-    <div className="gallery">
-        <this.gallery />
+  useEffect(() => {
+    setAppState({ loading: true });
+    const apiUrl = `http://localhost:8000/names`;
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((images) => {
+        setAppState({ loading: false, images: images });
+      });
+  }, [setAppState]);
+  return (
+    <div>
+      <div className='container'>
+        <h1>My images</h1>
+      </div>
+      <div className='gallery-container'>
+        <GalleryLoading isLoading={appState.loading} images={appState.images} />
+      </div>
+      
     </div>
-    );
-}
-}
-
-ReactDOM.render(
-    <GalleryGrid />,
-    document.getElementById('root')
   );
-
+}
 export default GalleryGrid;

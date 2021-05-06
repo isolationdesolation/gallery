@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
 
 import './DownloadForm.scss';
 
@@ -25,15 +27,16 @@ class DownloadForm extends React.Component {
     };
 
     handleSubmit(event) {
-      ;
+      const data = new FormData();
       if (this.state.value) {
-        localStorage.setItem('url', this.state.value);
-        alert('Download is started for image' + this.state.value)
+        data.append('file', JSON.stringify({'url': this.state.value, 'width': '', 'height': ''}));
+        axios.post("http://localhost:8000/upload", data);
       };
       if (this.state.file) {
-        localStorage.setItem('file', JSON.stringify(this.state.file));
-        alert('Json processing' + this.state.file)
+        data.append('file', this.state.file);
+        axios.post("http://localhost:8000/upload", data)
       };
+      
         event.preventDefault();
       }
   
@@ -57,7 +60,7 @@ class DownloadForm extends React.Component {
               />
             </div>              
             </div>
-          <input className="submit" type="submit" value="Загрузить изображение" />
+          <input className="submit" type="submit" value="Загрузить" />
         </form>
       );
     }

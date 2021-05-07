@@ -30,7 +30,7 @@ class DownloadForm extends React.Component {
     const data = new FormData();
     if (this.state.value) {
       data.append('file', JSON.stringify({ 'url': this.state.value, 'width': '', 'height': '' }));
-      axios.post("http://localhost:8000/uploadByUrl", data);
+      axios.post("http://localhost:8000/upload", data);
     };
     if (this.state.fileDownloaded) {
       for (var numberOfFiles = 0; numberOfFiles < this.state.fileDownloaded.length; numberOfFiles++) {

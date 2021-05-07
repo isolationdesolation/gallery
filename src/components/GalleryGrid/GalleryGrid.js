@@ -1,7 +1,8 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loader from '../Loader/Loader';
 import GalleryData from '../GalleryData/GalleryData';
 import './GalleryGrid.scss';
+
 
 function GalleryGrid() {
   const GalleryLoading = Loader(GalleryData);
@@ -19,6 +20,7 @@ function GalleryGrid() {
         setAppState({ loading: false, images: images });
       });
   }, [setAppState]);
+
   return (
     <div>
       <div className='container'>

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import GalleryGrid from '../components/GalleryGrid/GalleryGrid';
+import JsonsGrid from '../components/JsonsGrid/JsonsGrid';
 
 function Gallery() {
   return (
@@ -9,6 +10,7 @@ function Gallery() {
         height: 200,  
         paddingTop: 100  }}>
       <GalleryGrid />
+      <JsonsGrid />
     </div>
   );
 }

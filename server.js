@@ -43,21 +43,26 @@ const getListFileNames = (req, res) => {
     }
 
     let fileInfos = [];
+    
 
     files.forEach((file) => {
-      fileInfos.push({
-        name: file,
-      });
+      fileInfos.push(
+         require(`./public/jsons/${file}`).galleryImages.map(address => address.url)
+      );
     });
 
-    res.status(200).send(fileInfos);
+    var merged = [].concat.apply([], fileInfos);
+    
+    
+    res.status(200).send(merged);
   });
 };
 
 
+
 app.get('/names', getListFileNames)
 
-
+// app.get('/:name', )
 
 
 var storageImages = multer.diskStorage({

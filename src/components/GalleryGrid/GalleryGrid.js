@@ -12,7 +12,7 @@ function GalleryGrid() {
 
   useEffect(() => {
     setAppState({ loading: true });
-    const apiUrl = `http://localhost:8000/names`;
+    const apiUrl = `http://localhost:8000/imagenames`;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((images) => {

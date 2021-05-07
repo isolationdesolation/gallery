@@ -7,7 +7,7 @@ const GalleryData = (props) => {
       {images.map((image) => {
         return (
           <li key={image.name} className='list'>
-            <span className='text'>{image.name}</span>
+            <img src={`http://localhost:8000/${image.name}`}></img>
           </li>
         );
       })}

@@ -3,6 +3,7 @@ var app = express();
 var multer = require('multer')
 var cors = require('cors');
 var fs = require('fs');
+var path = require('path')
 
 
 app.use(cors());
@@ -56,10 +57,59 @@ const getListFileNames = (req, res) => {
 
 app.get('/names', getListFileNames)
 
-app.use('/names/:name', function (req, res, next) {
-  console.log('Image name:', req.params.name);
-  next();
+
+
+
+var storageImages = multer.diskStorage({
+  destination: function(req, file, cb) {
+      cb(null, './public/images');
+   },
+  filename: function (req, file, cb) {
+      cb(null , file.originalname);
+  }
 });
+
+var uploadImages = multer({ storage: storageImages })
+
+
+app.post('/dnd', uploadImages.array('file') , (req, res) =>{
+  try {
+      res.send(req.files);
+  } catch(error) {
+        console.log(error);
+         res.send(400);
+  }
+});
+
+
+app.use('/', express.static(path.join(__dirname, 'public/images')))
+
+
+// отобразить все имена картинок
+const getListImageNames = (req, res) => {
+  const directoryPath = "./public/images";
+
+  fs.readdir(directoryPath, function (err, files) {
+    if (err) {
+      res.status(500).send({
+        message: "Unable to scan images!",
+      });
+    }
+
+    let fileInfos = [];
+
+    files.forEach((file) => {
+      fileInfos.push({
+        name: file,
+      });
+    });
+
+    res.status(200).send(fileInfos);
+  });
+};
+
+
+app.get('/imagenames', getListImageNames)
 
 
 app.listen(8000, function () {
